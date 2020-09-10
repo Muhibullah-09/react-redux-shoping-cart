@@ -6,7 +6,7 @@ export default class SubTotal extends Component {
         return (
             <Row className='show-grid'>
                 <Col md={6}>Subtotal</Col>
-                <Col md={6}>{`$${this.props.price}`}</Col>
+                <Col md={6}>{`PKR ${this.props.price}`}</Col>
             </Row>
         )
     }
