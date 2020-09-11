@@ -6,10 +6,10 @@ export default class EstimatedTotal extends Component {
         return (
             <Row>
                 <Col md={6}>
-                    <h3>Est. Total</h3>
+                    <h5>Est. Total</h5>
                 </Col>
                 <Col md={6}>
-                    <h3>{`PKR ${this.props.price}`}</h3>
+                    <h5>{`PKR ${this.props.total}`}</h5>
                 </Col>
             </Row>
         )

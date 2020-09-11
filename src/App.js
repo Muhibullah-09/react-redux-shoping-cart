@@ -18,6 +18,16 @@ export default class App extends Component {
       DisablePromoButton: false
     };
   }
+  componentDidMount = () => {
+    this.setState({
+      Taxes: (this.state.Total + this.state.PickupSavings) * 0.085
+    },
+      function () {
+        this.setState({
+          EstimatedTotal: this.state.Total + this.state.PickupSavings + this.state.Taxes
+        })
+      });
+  };
   render() {
     return (
       <div className="container">
@@ -29,7 +39,7 @@ export default class App extends Component {
             <br />
             <TaxesFees taxes={this.state.Taxes.toFixed(2)} />
             <hr /><br />
-            <EstimatedTotal price={this.state.EstimatedTotal.toFixed(2)} /><br />
+            <EstimatedTotal total={this.state.EstimatedTotal.toFixed(2)} /><br />
             <ItemDetails price={this.state.EstimatedTotal.toFixed(2)} />
             <hr />
             <PromoCode
