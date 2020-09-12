@@ -1,13 +1,18 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
+import { promoCode } from '../../redux/PromoCode/PromoCodeAction';
 import { Button, Collapse, Form, Row, Col, FormGroup, FormControl } from 'react-bootstrap';
-export default class PromoCode extends Component {
+class PromoCode extends Component {
     constructor(props) {
         super(props)
         this.state = {
             open: false,
-            value: ''
         };
     }
+
+    handleChange = e => {
+        this.props.handleChange(e);
+    };
     render() {
         return (
             <div>
@@ -49,3 +54,9 @@ export default class PromoCode extends Component {
         )
     }
 }
+
+//mapStateProps is the alternate of useSelector Hook.
+const mapStateToProps = state => {
+    promoCode: state.promoCode.value
+}
+export default connect(mapStateToProps, { handleChange })(PromoCode);
